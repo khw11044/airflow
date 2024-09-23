@@ -10,11 +10,11 @@ from airflow.operators.empty import EmptyOperator
 with DAG(
     dag_id="dags_bash_operator",                             # Dag이름, DAG 파일명과 Dag id는 일치시키자 
     schedule="0 0 * * *",                                    # 5개 항목, 분, 시, 일, 월, 요일 
-    start_date=pendulum.datetime(2024, 9, 23, tz="Asia/Seoul"),
+    start_date=pendulum.datetime(2024, 9, 22, tz="Asia/Seoul"),
     catchup=False,                                          # False: start_date 설정에서 현재 시간 누락된 이미 지난 시간의 스케쥴은 run하지 않음 
-    dagrun_timeout=datetime.timedelta(minutes=60),          # 60분이상 수행못하면 실패 
-    tags=["example", "example2"],                           # DAG의 태그를 걸어줌 
-    params={"example_key": "example_value"},                # task들에게 전달해줄 공통된 파라미터
+    #dagrun_timeout=datetime.timedelta(minutes=60),          # 60분이상 수행못하면 실패 
+    #tags=["example", "example2"],                           # DAG의 태그를 걸어줌 
+    #params={"example_key": "example_value"},                # task들에게 전달해줄 공통된 파라미터
 ) as dag:
     # [START howto_operator_bash]
     # task 객체 명 
